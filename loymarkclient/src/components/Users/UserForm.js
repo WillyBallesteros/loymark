@@ -87,10 +87,7 @@ const RegistrarUsuario = ({ open, handleClose, userId}) => {
 
     receiveInformation: yup.bool().required(
     REQUIRED_MESSAGE)
-    .typeError(REQUIRED_MESSAGE),
-    
-    
-    
+    .typeError(REQUIRED_MESSAGE)
   });
 
   const defaultValues = {
@@ -129,6 +126,13 @@ const RegistrarUsuario = ({ open, handleClose, userId}) => {
       getUserAsync();
     }
   }, []);
+
+  const handleOPhoneKeyPress = (e) => {
+    let validChars = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+    if (!validChars.includes(e.key)) {
+      e.preventDefault();
+    }
+  };
 
 
   const onSubmit = (data) => {
@@ -174,16 +178,11 @@ const RegistrarUsuario = ({ open, handleClose, userId}) => {
     createPerson();
   };
 
-
-
-
   return (
     <Dialog open={open} onClose={handleClose}>
       <DialogTitle align="center">Registro Usuario</DialogTitle>
       <DialogContent>
-
-
-        <form onSubmit={handleSubmit(onSubmit)} style={{ minWidth: "500px" }}>
+        <form onSubmit={handleSubmit(onSubmit)} style={{ minWidth: "500px", paddingTop: "15px" }}>
           <div style={{ marginBottom: 15 }}>
             <Stack spacing={3}>
               <Controller
@@ -195,7 +194,7 @@ const RegistrarUsuario = ({ open, handleClose, userId}) => {
                     label="Nombres" {...field}
                     variant="outlined"
                     error={!!errors.name}
-                    helperText={errors?.name && <p>{errors?.name?.message}</p>} />
+                    helperText={errors?.name && <div>{errors?.name?.message}</div>} />
                 )}
               />
 
@@ -212,7 +211,7 @@ const RegistrarUsuario = ({ open, handleClose, userId}) => {
                     label="Apellidos" {...field}
                     variant="outlined"
                     error={!!errors.lastname}
-                    helperText={errors?.lastname && <p>{errors?.lastname?.message}</p>} />
+                    helperText={errors?.lastname && <div>{errors?.lastname?.message}</div>} />
                 )}
               />
             </Stack>
@@ -228,7 +227,7 @@ const RegistrarUsuario = ({ open, handleClose, userId}) => {
                     label="Correo eléctronico" {...field}
                     variant="outlined"
                     error={!!errors.email}
-                    helperText={errors?.email && <p>{errors?.email?.message}</p>} />
+                    helperText={errors?.email && <div>{errors?.email?.message}</div>} />
                 )}
               />
             </Stack>
@@ -245,7 +244,7 @@ const RegistrarUsuario = ({ open, handleClose, userId}) => {
                       label="Fecha de Nacimiento"
                       inputFormat="MM/DD/YYYY"
                       {...field}
-                      renderInput={(params) => <TextField type="text" {...params} error={!!errors.birthDate} helperText={errors?.birthDate && <p>{errors?.birthDate?.message}</p>} />}
+                      renderInput={(params) => <TextField type="text" {...params} error={!!errors.birthDate} helperText={errors?.birthDate && <div>{errors?.birthDate?.message}</div>} />}
                     />
                   )}
                 />
@@ -262,8 +261,9 @@ const RegistrarUsuario = ({ open, handleClose, userId}) => {
                   <TextField
                     label="Teléfono" {...field}
                     variant="outlined"
+                    onKeyPress={handleOPhoneKeyPress}
                     error={!!errors.phone}
-                    helperText={errors?.phone && <p>{errors?.phone?.message}</p>} />
+                    helperText={errors?.phone && <div>{errors?.phone?.message}</div>} />
                 )}
               />
             </Stack>
@@ -280,7 +280,7 @@ const RegistrarUsuario = ({ open, handleClose, userId}) => {
                     label="Pais de residencia" {...field}
                     variant="outlined"
                     error={!!errors.residenceCountry}
-                    helperText={errors?.residenceCountry && <p>{errors?.residenceCountry?.message}</p>}>
+                    helperText={errors?.residenceCountry && <div>{errors?.residenceCountry?.message}</div>}>
                     <MenuItem value="">Select...</MenuItem>
                     {countries && countries.map((country) => (
                       <MenuItem value={country.code}>{country.fullName}</MenuItem>
@@ -302,7 +302,7 @@ const RegistrarUsuario = ({ open, handleClose, userId}) => {
                     label="¿Desea recibir información?" {...field}
                     variant="outlined"
                     error={!!errors.receiveInformation}
-                    helperText={errors?.receiveInformation && <p>{errors?.receiveInformation?.message}</p>}>
+                    helperText={errors?.receiveInformation && <div>{errors?.receiveInformation?.message}</div>}>
                     <MenuItem value={true}>Si</MenuItem>
                     <MenuItem value={false}>No</MenuItem>
                   </TextField>
