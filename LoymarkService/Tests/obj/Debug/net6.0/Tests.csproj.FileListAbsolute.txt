@@ -1,0 +1,12 @@
+C:\Loymark\LoymarkService\Tests\bin\Debug\net6.0\Tests.deps.json
+C:\Loymark\LoymarkService\Tests\bin\Debug\net6.0\Tests.dll
+C:\Loymark\LoymarkService\Tests\bin\Debug\net6.0\Tests.pdb
+C:\Loymark\LoymarkService\Tests\obj\Debug\net6.0\Tests.csproj.AssemblyReference.cache
+C:\Loymark\LoymarkService\Tests\obj\Debug\net6.0\Tests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Loymark\LoymarkService\Tests\obj\Debug\net6.0\Tests.AssemblyInfoInputs.cache
+C:\Loymark\LoymarkService\Tests\obj\Debug\net6.0\Tests.AssemblyInfo.cs
+C:\Loymark\LoymarkService\Tests\obj\Debug\net6.0\Tests.csproj.CoreCompileInputs.cache
+C:\Loymark\LoymarkService\Tests\obj\Debug\net6.0\Tests.dll
+C:\Loymark\LoymarkService\Tests\obj\Debug\net6.0\refint\Tests.dll
+C:\Loymark\LoymarkService\Tests\obj\Debug\net6.0\Tests.pdb
+C:\Loymark\LoymarkService\Tests\obj\Debug\net6.0\ref\Tests.dll
